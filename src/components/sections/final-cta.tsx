@@ -31,7 +31,7 @@ export function FinalCta() {
   return (
     <section
       id="final-cta-section"
-      className="relative overflow-hidden bg-navy py-14 sm:py-16 md:py-32"
+      className="relative overflow-hidden bg-navy py-[clamp(2.5rem,9vw,3.5rem)] md:py-32"
     >
       <div
         aria-hidden
@@ -59,7 +59,7 @@ export function FinalCta() {
           לחצו על הכפתור וקבעו שיחת ייעוץ אישית ללא עלות.
         </motion.p>
 
-        <motion.div variants={item} className="mt-8 flex justify-center sm:mt-10">
+        <motion.div variants={item} className="mt-6 flex justify-center sm:mt-10">
           <WhatsAppCta label="קביעת שיחת ייעוץ ללא עלות" size="large" />
         </motion.div>
       </motion.div>

@@ -71,13 +71,13 @@ export function WhyDifferent() {
   };
 
   return (
-    <section className="bg-secondary/60 py-14 sm:py-16 md:py-32">
+    <section className="bg-secondary/60 py-[clamp(2.5rem,9vw,3.5rem)] md:py-32">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 md:px-8">
         <div className="mx-auto max-w-2xl text-center">
           <h2 className="text-[1.75rem] font-bold leading-[1.25] tracking-tight text-navy sm:text-3xl md:text-4xl">
             למה אימון אחרי גיל 50 חייב להיות שונה?
           </h2>
-          <p className="mt-4 text-base leading-relaxed text-muted-foreground sm:mt-5 sm:text-[1.05rem]">
+          <p className="mt-3 text-base leading-relaxed text-muted-foreground sm:mt-5 sm:text-[1.05rem]">
             אימונים שמתאימים לבן 25 לא תמיד מתאימים לבן 60. בגיל הזה חשוב
             לקחת בחשבון הרבה יותר ממספר החזרות והמשקלים.
           </p>
@@ -88,7 +88,7 @@ export function WhyDifferent() {
           initial={shouldReduceMotion ? "show" : "hidden"}
           whileInView="show"
           viewport={{ once: true, amount: 0.25 }}
-          className="mt-10 grid grid-cols-1 gap-4 sm:mt-12 sm:gap-5 md:mt-16 md:grid-cols-2 lg:grid-cols-3"
+          className="mt-7 grid grid-cols-1 gap-3 sm:mt-10 sm:gap-4 md:mt-16 md:grid-cols-2 lg:grid-cols-3"
         >
           {factors.map((factor) => (
             <motion.div
@@ -132,27 +132,22 @@ function FactorTile({ factor }: { factor: FactorCard }) {
         : "bg-navy/6 text-navy";
 
   return (
-    <div
-      className={cn(
-        "h-full rounded-[2rem] p-2 ring-1 ring-inset",
-        outerTone
-      )}
-    >
+    <div className={cn("rounded-[1.75rem] p-1.5 ring-1 ring-inset", outerTone)}>
       <div
         className={cn(
-          "flex h-full min-h-[140px] flex-col justify-between rounded-[1.65rem] p-5 sm:min-h-[168px] sm:p-6",
+          "flex items-center gap-3.5 rounded-[1.4rem] p-4 sm:gap-4 sm:p-5",
           innerTone
         )}
       >
         <span
           className={cn(
-            "flex size-10 items-center justify-center rounded-full sm:size-11",
+            "flex size-10 shrink-0 items-center justify-center rounded-full sm:size-11",
             iconBadge
           )}
         >
           <Icon className="size-5" strokeWidth={1.75} />
         </span>
-        <h3 className="mt-5 text-base font-semibold leading-snug sm:mt-6 sm:text-lg">
+        <h3 className="text-base font-semibold leading-snug sm:text-lg">
           {factor.title}
         </h3>
       </div>

@@ -33,8 +33,8 @@ export function Hero() {
   };
 
   return (
-    <section className="relative overflow-hidden bg-background pt-10 pb-10 sm:pt-14 sm:pb-14 md:pt-20 md:pb-20">
-      <div className="mx-auto grid max-w-7xl grid-cols-1 items-center gap-8 px-4 sm:gap-10 sm:px-6 md:px-8 lg:grid-cols-[1.08fr_0.92fr] lg:gap-10">
+    <section className="relative overflow-hidden bg-background py-[clamp(1.75rem,7vw,3rem)] md:py-20">
+      <div className="mx-auto grid max-w-7xl grid-cols-1 items-center gap-[clamp(1.5rem,6vw,2.5rem)] px-4 sm:px-6 md:px-8 lg:grid-cols-[1.08fr_0.92fr] lg:gap-10">
         <motion.div
           variants={container}
           initial="hidden"
@@ -59,7 +59,7 @@ export function Hero() {
 
           <motion.div
             variants={item}
-            className="mt-5 max-w-[46ch] space-y-4 text-base leading-relaxed text-muted-foreground sm:mt-6 sm:text-[1.05rem]"
+            className="mt-4 max-w-[46ch] space-y-3 text-base leading-relaxed text-muted-foreground sm:mt-6 sm:space-y-4 sm:text-[1.05rem]"
           >
             <p>
               אם אתם בני 50 ומעלה ומרגישים שהכוח כבר לא מה שהיה, שאתם מתעייפים
@@ -76,11 +76,7 @@ export function Hero() {
             </p>
           </motion.div>
 
-          <motion.div
-            variants={item}
-            id="hero-cta"
-            className="mt-7 sm:mt-9"
-          >
+          <motion.div variants={item} id="hero-cta" className="mt-6 sm:mt-9">
             <WhatsAppCta
               label="קביעת שיחת ייעוץ ללא עלות"
               size="large"

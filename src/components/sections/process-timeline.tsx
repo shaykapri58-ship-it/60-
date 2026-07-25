@@ -46,13 +46,13 @@ export function ProcessTimeline() {
   };
 
   return (
-    <section className="bg-background py-14 sm:py-16 md:py-32">
+    <section className="bg-background py-[clamp(2.5rem,9vw,3.5rem)] md:py-32">
       <div className="mx-auto max-w-4xl px-4 sm:px-6 md:px-8">
         <h2 className="text-center text-[1.75rem] font-bold leading-[1.25] tracking-tight text-navy sm:text-3xl md:text-4xl">
           ככה נראית הדרך שלכם להתחזק
         </h2>
 
-        <div className="relative mt-10 sm:mt-12 md:mt-20">
+        <div className="relative mt-8 sm:mt-12 md:mt-20">
           <div className="absolute top-6 bottom-6 start-6 w-px bg-gradient-to-b from-navy/20 via-navy/15 to-navy/5 sm:top-7 sm:bottom-7 sm:start-7 md:start-8" />
 
           <motion.ol
@@ -60,7 +60,7 @@ export function ProcessTimeline() {
             initial={shouldReduceMotion ? "show" : "hidden"}
             whileInView="show"
             viewport={{ once: true, amount: 0.2 }}
-            className="space-y-7 sm:space-y-10 md:space-y-14"
+            className="space-y-6 sm:space-y-10 md:space-y-14"
           >
             {steps.map((step, index) => (
               <motion.li
