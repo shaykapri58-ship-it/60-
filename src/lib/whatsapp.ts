@@ -1,5 +1,4 @@
-// TODO: replace with the real business WhatsApp number (international format, no leading 0 or +).
-const WHATSAPP_NUMBER = "972501234567";
+const WHATSAPP_NUMBER = "972548053379";
 
 const WHATSAPP_MESSAGE = "היי, אשמח לקבוע שיחת ייעוץ אישית ללא עלות.";
 

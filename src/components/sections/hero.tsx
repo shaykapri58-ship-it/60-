@@ -1,6 +1,6 @@
 "use client";
 
-import { UserRound } from "lucide-react";
+import Image from "next/image";
 import { motion, useReducedMotion, type Variants } from "framer-motion";
 
 import { WhatsAppCta } from "@/components/whatsapp-cta";
@@ -104,16 +104,14 @@ export function Hero() {
             <div className="absolute left-1/2 top-1/2 size-[82%] -translate-x-1/2 -translate-y-1/2 rounded-full ring-1 ring-navy/10" />
 
             <div className="absolute left-1/2 top-1/2 aspect-[4/5] w-[68%] -translate-x-1/2 -translate-y-1/2 overflow-hidden rounded-[2.25rem] shadow-[0_16px_36px_-18px_rgba(15,23,42,0.35)] ring-1 ring-black/5 md:shadow-[0_40px_80px_-30px_rgba(15,23,42,0.45)]">
-              {/* Placeholder: swap for a real photo of the trainer, see /public/images/README.txt */}
-              <div className="flex size-full flex-col items-center justify-center gap-2 bg-gradient-to-br from-navy/8 via-brand/6 to-navy/12 sm:gap-3">
-                <UserRound
-                  className="size-10 text-navy/25 sm:size-14 lg:size-16"
-                  strokeWidth={1.25}
-                />
-                <span className="rounded-full bg-background/80 px-2.5 py-1 text-[11px] font-medium text-navy/60 backdrop-blur sm:px-3 sm:text-xs">
-                  התמונה שלך כאן
-                </span>
-              </div>
+              <Image
+                src="/images/hero-portrait.jpg"
+                alt="מאמן כוח אישי, יבנה"
+                fill
+                sizes="(min-width: 1024px) 420px, (min-width: 768px) 360px, 300px"
+                className="object-cover"
+                priority
+              />
             </div>
           </div>
         </motion.div>
