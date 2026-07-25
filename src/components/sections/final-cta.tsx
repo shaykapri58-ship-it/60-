@@ -35,7 +35,11 @@ export function FinalCta() {
     >
       <div
         aria-hidden
-        className="pointer-events-none absolute left-1/2 top-0 size-[320px] -translate-x-1/2 -translate-y-1/3 rounded-full bg-brand/20 blur-[70px] sm:size-[420px] sm:blur-[90px] md:size-[560px] md:blur-[120px]"
+        className="pointer-events-none absolute left-1/2 top-0 size-[320px] -translate-x-1/2 -translate-y-1/3 rounded-full bg-brand/15 blur-[70px] sm:size-[420px] sm:blur-[90px] md:size-[560px] md:blur-[120px]"
+      />
+      <div
+        aria-hidden
+        className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_at_50%_40%,transparent_0%,transparent_45%,rgba(0,0,0,0.28)_100%)]"
       />
 
       <motion.div
@@ -47,7 +51,7 @@ export function FinalCta() {
       >
         <motion.h2
           variants={item}
-          className="text-[1.75rem] font-bold leading-[1.25] tracking-tight text-navy-foreground sm:text-3xl md:text-[2.75rem]"
+          className="text-[1.75rem] font-extrabold leading-[1.25] tracking-tight text-navy-foreground sm:text-3xl md:text-[2.75rem]"
         >
           רוצים לבדוק אם זה מתאים גם לכם?
         </motion.h2>

@@ -11,40 +11,30 @@ const EASE = [0.16, 1, 0.3, 1] as const;
 interface FactorCard {
   title: string;
   icon: LucideIcon;
-  span: "lead" | "default";
-  tone: "navy" | "brand" | "plain";
+  lead?: boolean;
 }
 
 const factors: FactorCard[] = [
   {
     title: "רמת הכושר הנוכחית",
     icon: Gauge,
-    span: "lead",
-    tone: "navy",
+    lead: true,
   },
   {
     title: "כאבי גב, ברכיים או כתפיים",
     icon: Bone,
-    span: "default",
-    tone: "brand",
   },
   {
     title: "מגבלות תנועה",
     icon: PersonStanding,
-    span: "default",
-    tone: "plain",
   },
   {
     title: "ניסיון קודם",
     icon: History,
-    span: "default",
-    tone: "plain",
   },
   {
     title: "המטרות האישיות שלכם",
     icon: Target,
-    span: "default",
-    tone: "plain",
   },
 ];
 
@@ -74,7 +64,7 @@ export function WhyDifferent() {
     <section className="bg-secondary/60 py-[clamp(2.5rem,9vw,3.5rem)] md:py-32">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 md:px-8">
         <div className="mx-auto max-w-2xl text-center">
-          <h2 className="text-[1.75rem] font-bold leading-[1.25] tracking-tight text-navy sm:text-3xl md:text-4xl">
+          <h2 className="text-[1.75rem] font-extrabold leading-[1.25] tracking-tight text-navy sm:text-3xl md:text-4xl">
             למה אימון אחרי גיל 50 חייב להיות שונה?
           </h2>
           <p className="mt-3 text-base leading-relaxed text-muted-foreground sm:mt-5 sm:text-[1.05rem]">
@@ -94,9 +84,7 @@ export function WhyDifferent() {
             <motion.div
               key={factor.title}
               variants={item}
-              className={cn(
-                factor.span === "lead" && "md:col-span-2 lg:col-span-2"
-              )}
+              className={cn(factor.lead && "md:col-span-2 lg:col-span-2")}
             >
               <FactorTile factor={factor} />
             </motion.div>
@@ -110,39 +98,29 @@ export function WhyDifferent() {
 function FactorTile({ factor }: { factor: FactorCard }) {
   const Icon = factor.icon;
 
-  const outerTone =
-    factor.tone === "navy"
-      ? "bg-navy/8 ring-navy/10"
-      : factor.tone === "brand"
-        ? "bg-brand/8 ring-brand/12"
-        : "bg-black/[0.03] ring-black/5";
-
-  const innerTone =
-    factor.tone === "navy"
-      ? "bg-gradient-to-br from-navy to-navy/85 text-navy-foreground shadow-[inset_0_1px_0_rgba(255,255,255,0.12)]"
-      : factor.tone === "brand"
-        ? "bg-gradient-to-br from-brand/12 via-brand/5 to-transparent text-navy shadow-[inset_0_1px_0_rgba(255,255,255,0.6)]"
-        : "bg-card text-navy shadow-[inset_0_1px_0_rgba(255,255,255,0.7)]";
-
-  const iconBadge =
-    factor.tone === "navy"
-      ? "bg-white/12 text-navy-foreground"
-      : factor.tone === "brand"
-        ? "bg-brand/15 text-brand"
-        : "bg-navy/6 text-navy";
-
   return (
-    <div className={cn("rounded-[1.75rem] p-1.5 ring-1 ring-inset", outerTone)}>
+    <div
+      className={cn(
+        "group h-full rounded-[1.75rem] p-1.5 ring-1 ring-inset transition-all duration-300 ease-[cubic-bezier(0.16,1,0.3,1)] md:hover:-translate-y-0.5",
+        factor.lead
+          ? "bg-navy/10 ring-navy/12 md:hover:shadow-[0_18px_36px_-18px_rgba(15,23,42,0.4)]"
+          : "bg-black/[0.025] ring-black/[0.06] md:hover:shadow-[0_14px_30px_-16px_rgba(15,23,42,0.2)]"
+      )}
+    >
       <div
         className={cn(
-          "flex items-center gap-3.5 rounded-[1.4rem] p-4 sm:gap-4 sm:p-5",
-          innerTone
+          "flex h-full items-center gap-3.5 rounded-[1.4rem] p-4 sm:gap-4 sm:p-5",
+          factor.lead
+            ? "bg-gradient-to-br from-navy to-navy/88 text-navy-foreground shadow-[inset_0_1px_0_rgba(255,255,255,0.14)]"
+            : "bg-card text-navy shadow-[inset_0_1px_0_rgba(255,255,255,0.8)]"
         )}
       >
         <span
           className={cn(
-            "flex size-10 shrink-0 items-center justify-center rounded-full sm:size-11",
-            iconBadge
+            "flex size-10 shrink-0 items-center justify-center rounded-full ring-1 ring-inset sm:size-11",
+            factor.lead
+              ? "bg-white/14 text-navy-foreground ring-white/20"
+              : "bg-brand/10 text-brand ring-brand/15"
           )}
         >
           <Icon className="size-5" strokeWidth={1.75} />

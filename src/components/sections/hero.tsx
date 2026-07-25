@@ -50,7 +50,7 @@ export function Hero() {
 
           <motion.h1
             variants={item}
-            className="mt-5 text-[2rem] leading-[1.2] font-bold tracking-tight text-navy sm:mt-6 sm:text-4xl sm:leading-[1.14] md:text-5xl lg:text-[3.4rem] lg:leading-[1.12]"
+            className="mt-5 text-[2.1rem] leading-[1.16] font-extrabold tracking-[-0.02em] text-navy sm:mt-6 sm:text-4xl sm:leading-[1.12] md:text-5xl lg:text-[3.6rem] lg:leading-[1.08]"
           >
             הגוף כבר לא מגיב כמו פעם?
             <br />
@@ -100,18 +100,24 @@ export function Hero() {
           className="relative mx-auto w-full max-w-[240px] sm:max-w-[300px] md:max-w-[360px] lg:max-w-[420px]"
         >
           <div className="relative aspect-square w-full">
-            <div className="absolute left-1/2 top-1/2 size-[82%] -translate-x-1/2 -translate-y-1/2 rounded-full bg-gradient-to-br from-accent/15 via-accent/5 to-transparent" />
-            <div className="absolute left-1/2 top-1/2 size-[82%] -translate-x-1/2 -translate-y-1/2 rounded-full ring-1 ring-navy/10" />
+            {/* soft radial backdrop for depth */}
+            <div className="absolute left-1/2 top-1/2 size-[82%] -translate-x-1/2 -translate-y-1/2 rounded-full bg-gradient-to-br from-brand/12 via-accent/6 to-transparent" />
+            <div className="absolute left-1/2 top-1/2 size-[82%] -translate-x-1/2 -translate-y-1/2 rounded-full ring-1 ring-navy/8" />
+            {/* grounding contact shadow */}
+            <div className="absolute left-1/2 top-[60%] h-[42%] w-[56%] -translate-x-1/2 rounded-full bg-navy/25 opacity-40 blur-2xl" />
 
-            <div className="absolute left-1/2 top-1/2 aspect-[4/5] w-[68%] -translate-x-1/2 -translate-y-1/2 overflow-hidden rounded-[2.25rem] shadow-[0_16px_36px_-18px_rgba(15,23,42,0.35)] ring-1 ring-black/5 md:shadow-[0_40px_80px_-30px_rgba(15,23,42,0.45)]">
-              <Image
-                src="/images/hero-portrait.jpg"
-                alt="מאמן כוח אישי, יבנה"
-                fill
-                sizes="(min-width: 1024px) 420px, (min-width: 768px) 360px, 300px"
-                className="object-cover"
-                priority
-              />
+            {/* double-bezel frame: outer shell + inner photo */}
+            <div className="absolute left-1/2 top-1/2 aspect-[4/5] w-[68%] -translate-x-1/2 -translate-y-1/2 rounded-[2.35rem] bg-background p-1.5 shadow-[0_18px_40px_-18px_rgba(15,23,42,0.4)] ring-1 ring-black/[0.06] md:shadow-[0_32px_64px_-24px_rgba(15,23,42,0.45)]">
+              <div className="relative size-full overflow-hidden rounded-[1.85rem] ring-1 ring-inset ring-white/50">
+                <Image
+                  src="/images/hero-portrait.jpg"
+                  alt="מאמן כוח אישי, יבנה"
+                  fill
+                  sizes="(min-width: 1024px) 420px, (min-width: 768px) 360px, 300px"
+                  className="object-cover"
+                  priority
+                />
+              </div>
             </div>
           </div>
         </motion.div>

@@ -48,12 +48,12 @@ export function ProcessTimeline() {
   return (
     <section className="bg-background py-[clamp(2.5rem,9vw,3.5rem)] md:py-32">
       <div className="mx-auto max-w-4xl px-4 sm:px-6 md:px-8">
-        <h2 className="text-center text-[1.75rem] font-bold leading-[1.25] tracking-tight text-navy sm:text-3xl md:text-4xl">
+        <h2 className="text-center text-[1.75rem] font-extrabold leading-[1.25] tracking-tight text-navy sm:text-3xl md:text-4xl">
           ככה נראית הדרך שלכם להתחזק
         </h2>
 
         <div className="relative mt-8 sm:mt-12 md:mt-20">
-          <div className="absolute top-6 bottom-6 start-6 w-px bg-gradient-to-b from-navy/20 via-navy/15 to-navy/5 sm:top-7 sm:bottom-7 sm:start-7 md:start-8" />
+          <div className="absolute top-6 bottom-6 start-6 w-px bg-gradient-to-b from-brand/30 via-navy/15 to-navy/5 sm:top-7 sm:bottom-7 sm:start-7 md:start-8" />
 
           <motion.ol
             variants={container}
@@ -66,9 +66,9 @@ export function ProcessTimeline() {
               <motion.li
                 key={step.title}
                 variants={item}
-                className="flex items-start gap-4 sm:gap-6 md:gap-8"
+                className="group flex items-start gap-4 rounded-2xl transition-colors duration-300 sm:gap-6 md:gap-8 md:-m-3 md:p-3 md:hover:bg-secondary/50"
               >
-                <div className="relative z-10 flex size-12 shrink-0 items-center justify-center rounded-full bg-navy text-lg font-bold text-navy-foreground shadow-[0_10px_22px_-12px_rgba(15,23,42,0.5)] sm:size-14 sm:text-xl md:size-16 md:text-2xl">
+                <div className="relative z-10 flex size-12 shrink-0 items-center justify-center rounded-full bg-gradient-to-br from-navy to-navy/85 text-lg font-bold text-navy-foreground shadow-[0_10px_22px_-12px_rgba(15,23,42,0.5),inset_0_1px_0_rgba(255,255,255,0.16)] ring-1 ring-navy/10 sm:size-14 sm:text-xl md:size-16 md:text-2xl">
                   {index + 1}
                 </div>
                 <div className="flex-1 pt-1.5 sm:pt-2 md:pt-3">
