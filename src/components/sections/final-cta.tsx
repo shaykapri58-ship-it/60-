@@ -51,7 +51,7 @@ export function FinalCta() {
       >
         <motion.h2
           variants={item}
-          className="text-[1.75rem] font-extrabold leading-[1.25] tracking-tight text-navy-foreground sm:text-3xl md:text-[2.75rem]"
+          className="text-[1.9rem] font-extrabold leading-[1.15] tracking-[-0.02em] text-navy-foreground sm:text-[2.25rem] md:text-[3rem]"
         >
           רוצים לבדוק אם זה מתאים גם לכם?
         </motion.h2>

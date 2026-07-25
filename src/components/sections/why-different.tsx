@@ -1,8 +1,6 @@
 "use client";
 
-import { Bone, Gauge, History, PersonStanding, Target } from "lucide-react";
 import { motion, useReducedMotion, type Variants } from "framer-motion";
-import type { LucideIcon } from "lucide-react";
 
 import { cn } from "@/lib/utils";
 
@@ -10,32 +8,15 @@ const EASE = [0.16, 1, 0.3, 1] as const;
 
 interface FactorCard {
   title: string;
-  icon: LucideIcon;
   lead?: boolean;
 }
 
 const factors: FactorCard[] = [
-  {
-    title: "רמת הכושר הנוכחית",
-    icon: Gauge,
-    lead: true,
-  },
-  {
-    title: "כאבי גב, ברכיים או כתפיים",
-    icon: Bone,
-  },
-  {
-    title: "מגבלות תנועה",
-    icon: PersonStanding,
-  },
-  {
-    title: "ניסיון קודם",
-    icon: History,
-  },
-  {
-    title: "המטרות האישיות שלכם",
-    icon: Target,
-  },
+  { title: "רמת הכושר הנוכחית", lead: true },
+  { title: "כאבי גב, ברכיים או כתפיים" },
+  { title: "מגבלות תנועה" },
+  { title: "ניסיון קודם" },
+  { title: "המטרות האישיות שלכם" },
 ];
 
 export function WhyDifferent() {
@@ -80,13 +61,13 @@ export function WhyDifferent() {
           viewport={{ once: true, amount: 0.25 }}
           className="mt-7 grid grid-cols-1 gap-3 sm:mt-10 sm:gap-4 md:mt-16 md:grid-cols-2 lg:grid-cols-3"
         >
-          {factors.map((factor) => (
+          {factors.map((factor, index) => (
             <motion.div
               key={factor.title}
               variants={item}
               className={cn(factor.lead && "md:col-span-2 lg:col-span-2")}
             >
-              <FactorTile factor={factor} />
+              <FactorTile factor={factor} index={index} />
             </motion.div>
           ))}
         </motion.div>
@@ -95,9 +76,13 @@ export function WhyDifferent() {
   );
 }
 
-function FactorTile({ factor }: { factor: FactorCard }) {
-  const Icon = factor.icon;
-
+function FactorTile({
+  factor,
+  index,
+}: {
+  factor: FactorCard;
+  index: number;
+}) {
   return (
     <div
       className={cn(
@@ -109,7 +94,7 @@ function FactorTile({ factor }: { factor: FactorCard }) {
     >
       <div
         className={cn(
-          "flex h-full items-center gap-3.5 rounded-[1.4rem] p-4 sm:gap-4 sm:p-5",
+          "flex h-full items-center gap-4 rounded-[1.4rem] p-4 sm:p-5",
           factor.lead
             ? "bg-gradient-to-br from-navy to-navy/88 text-navy-foreground shadow-[inset_0_1px_0_rgba(255,255,255,0.14)]"
             : "bg-card text-navy shadow-[inset_0_1px_0_rgba(255,255,255,0.8)]"
@@ -117,13 +102,11 @@ function FactorTile({ factor }: { factor: FactorCard }) {
       >
         <span
           className={cn(
-            "flex size-10 shrink-0 items-center justify-center rounded-full ring-1 ring-inset sm:size-11",
-            factor.lead
-              ? "bg-white/14 text-navy-foreground ring-white/20"
-              : "bg-brand/10 text-brand ring-brand/15"
+            "shrink-0 text-xl font-extrabold tabular-nums sm:text-2xl",
+            factor.lead ? "text-white/35" : "text-brand/40"
           )}
         >
-          <Icon className="size-5" strokeWidth={1.75} />
+          {String(index + 1).padStart(2, "0")}
         </span>
         <h3 className="text-base font-semibold leading-snug sm:text-lg">
           {factor.title}
