@@ -2,6 +2,7 @@ import { FinalCta } from "@/components/sections/final-cta";
 import { Hero } from "@/components/sections/hero";
 import { ProcessTimeline } from "@/components/sections/process-timeline";
 import { WhyDifferent } from "@/components/sections/why-different";
+import { MobileStickyCta } from "@/components/mobile-sticky-cta";
 
 export default function Home() {
   return (
@@ -10,6 +11,7 @@ export default function Home() {
       <WhyDifferent />
       <ProcessTimeline />
       <FinalCta />
+      <MobileStickyCta />
     </main>
   );
 }
